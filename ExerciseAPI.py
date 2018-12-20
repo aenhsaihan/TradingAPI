@@ -10,8 +10,8 @@ def bitfinex():
     return bitFinexTick.json()['last_price']
 
 def coinbase():
-    coinBaseTick = requests.get('https://coinbase.com/api/v1/prices/buy') 
-    return coinBaseTick.json()['amount']
+    coinBaseTick = requests.get('https://coinbase.com/api/v2/prices/BTC-USD/buy') 
+    return coinBaseTick.json()['data']['amount']
 
 def kraken():
     krakenTick = requests.post('https://api.kraken.com/0/public/Ticker',data=json.dumps({"pair":"XXBTZUSD"}),
